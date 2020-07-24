@@ -23,10 +23,14 @@ Go to the "genode" dir
 
 ! cd ../..
 
+Create a Genode toolhain x86_64:
+! ./tool/tool_chain x86_64
+! In the end password user root
+
 Create a Genode build directory:
 
-! ./tool/create_builddir x86_32
-! cd build/x86_32
+! ./tool/create_builddir x86_64
+! cd build/x86_64
 
 Here we are creating the build directory for x86_32 arch. There is a number
 of different platforms supported, like Linux kernel, Fiasco, Fiasco.OC, Nova,
@@ -61,7 +65,7 @@ You can change the kernel by specifying e.g., KERNEL=nova on the command line:
 ! make KERNEL=nova run/demo
 
 When the demo scenario works, you could build osFree then. For that, you will need to go to
-build/x86_32/etc/build.conf file and uncomment the "libports", "ports" source repositories, and
+build/x86_64/etc/build.conf file and uncomment the "libports", "ports" source repositories, and
 then add the "os3" repository (add two lines like this at some place in etc/build.conf):
 
 REPOSITORIES += $(GENODE_DIR)/repos/os3
@@ -93,7 +97,7 @@ This will download the FreeBSD libc, and apply Genode-specific patches.
 
 Then go to the genode/build/x86_32 directory:
 
-# cd genode/build/x86_32
+# cd genode/build/x86_64
 
 Start osFree scenario build by:
 
@@ -102,3 +106,6 @@ Start osFree scenario build by:
 This should build all osFree OS/2 personality components and run it under Genode/Linux.
 
 <add a note about how to run Genode via VNC or X11 remote connection>
+
+< Genode Application porting >
+https://genode.org/documentation/developer-resources/porting_dosbox
